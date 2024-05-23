@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center">
+    {{page-title "New"}}
+    {{#let @model as |details|}}
+        <form style="max-width: 368px;" {{on 'submit' (fn this.addContact details.name details.number details.mailid details.address )}}>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="name"> Name</label>
+                        <Input class="form-control" id="name" @value={{ details.name }} placeholder="Enter Name" type="text" required aria-label="Enter Name"/>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <label class="input-group-text ">Number</label>
+                        <Input  class="form-control" type="number" id="number" placeholder="Enter Number" type="number" @value={{ details.number }} required aria-label="Enter Number"/>
+                    </div>
+
+                    <div class="input-group mb-3">
+                         <label class="input-group-text ">Mail ID</label>
+                        <Input class="form-control" id="mail-id" placeholder="Enter Email ID" @value={{details.mailid}} type="email" required aria-label="Enter Email ID"/>
+                    </div>
+
+                    <div class="input-group  mb-3">
+                        <label class="input-group-text ">Address</label>
+                        <Input class="form-control" id="address" placeholder="Enter Address"  @value={{details.address}} type="text" required aria-label="Enter Address"/>
+                    </div>
+
+                        <button type="submit" class="btn btn-sm btn-outline-primary" aria-label="Button to add Contact">Add Contact</button> 
+
+        </form>
+        
+    {{/let}}
+
+    {{outlet}}
+</div>

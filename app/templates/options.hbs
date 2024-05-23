@@ -1,0 +1,20 @@
+{{page-title "Options"}}
+{{!-- {{log @model}} --}}
+
+<p class="text-danger align-middle">Click Contact to View</p>
+
+{{#let @model as |contact|}}
+
+    <LinkTo @route="options.view" class="link-success mb-2 fs-4 link-underline link-underline-opacity-0" aria-label="Link to View {{contact.name}}'s contact">
+            {{contact.name}}
+    </LinkTo>
+    
+    <div class="container-sm">
+        <div class="d-flex-block">
+                <button class="btn btn-outline-secondary btn-sm px-4 mb-2" type="button" {{on 'click' (fn this.toEdit contact.id)}} aria-label="Button to Edit {{contact.name}}'s contact">Edit</button>
+                <button class="btn btn-outline-danger btn-sm px-4 mb-2" {{on 'click' (fn this.deleteContact contact.id)}} aria-label="Button to Delete {{contact.name}}'s contact">Delete</button>
+        </div>
+    </div>
+
+{{/let}}
+{{outlet}}

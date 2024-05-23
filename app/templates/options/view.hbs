@@ -1,0 +1,12 @@
+{{page-title "View"}}
+
+{{#let @model as |contact|}}
+    <div class="py-3 text-dark" >
+        <p aria-label="Name - {{contact.name}}">{{contact.name}}</p>
+        <p aria-label="Number - {{contact.no}}">{{contact.no}}</p>
+        <p aria-label="Email - {{contact.mail}}" >{{contact.mail}}</p>
+        <p aria-label="Address - {{contact.add}}">{{contact.add}}</p>
+    </div>
+{{/let}}
+
+{{outlet}}

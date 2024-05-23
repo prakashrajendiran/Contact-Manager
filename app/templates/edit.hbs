@@ -1,0 +1,27 @@
+<div class="container d-flex justify-content-center">
+    {{page-title "Edit"}}
+    {{#let @model as |values|}}
+        <form style="max-width: 368px;"  {{on 'submit' (fn this.editContact values.name values.no values.mail values.add)}}>
+
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" id="name">Name</label>
+                        <Input class="form-control" type="text" id="name" @value={{ values.name }} required aria-label="Enter Name" aria-describedby="name" />
+                    </div>
+                    <div class="input-group  mb-3">
+                        <label class="input-group-text" id="number" >Number</label>
+                        <Input class="form-control" id="number" @value={{ values.no }} required aria-label="Enter Number"/>
+                    </div>
+                    <div class="input-group  mb-3">
+                        
+                        <label class="input-group-text" id="mail-id">Mail ID</label>
+                        <Input class="form-control" id="mail-id" @value={{values.mail}} aria-label="Enter MailID" required />
+                    </div>
+                    <div class="input-group  mb-3">
+                        <label class="input-group-text ">Address</label>
+                        <Input class="form-control" id="address" @value={{values.add}} required aria-label="Enter Address"/>
+                    </div>
+                        <button type="submit" class="btn btn-sm btn-outline-primary" aria-label="Button to Edit Contact">Edit Contact</button> 
+        </form>
+    {{/let}}
+    {{outlet}}
+</div>

@@ -1,0 +1,17 @@
+<div class="container-sm">
+
+    <p class="text-danger">To Edit or Delete click the Contact</p>
+
+    <div class="container">
+            <button class="btn btn-outline-success btn-sm" {{on 'click' this.newContact }} aria-label="Button for create new contact">New Contact</button>
+    </div>
+
+    <div class="container-sm p-2">
+            {{#each @model as |contact index|}}
+                    <LinkTo class="text-decoration-none link-dark fs-5 d-block" @route="options" @models={{array index contact.name}} aria-label="Click to go {{contact.name}}'s contact">
+                        {{contact.name}}
+                    </LinkTo>
+            {{/each}}
+    </div>
+
+</div>
